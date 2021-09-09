@@ -1,5 +1,6 @@
 body{
     font-family: gotico;
+    /*background-color: #F0c32a;*/
 }
 
 img{
@@ -28,6 +29,7 @@ h1{
 }
 
 input{
+    /*font-size: 1.2vw;*/
     border: none;
     border-radius: 5px;
     text-align: center;
@@ -44,6 +46,11 @@ input:hover{
     opacity: 1;
     width: 82%;
 }
+
+/*#botão{
+    border-radius: 5px;
+    width: 20%;
+}*/
 
 #botao{
     border-radius: 5px;
@@ -84,7 +91,25 @@ p{
     src: url(assets/fonts/GothicA1-Light.ttf);
 }
 
+/*@font-face {
+    font-family: futura;
+    font-style:normal;
+    font-weight: normal;
+    src: url(fonts/FuturaPTBook.woff);
+}
+
+@font-face {
+    font-family: futuraFino;
+    font-style:normal;
+    font-weight: normal;
+    src: url(fonts/FuturaThin.woff);
+}*/
+
 @media screen and (max-width: 600px) {
+
+    body{
+        background-color: #F0c32a;
+    }
     
     #container{
         width: 80%;
@@ -108,14 +133,19 @@ p{
         margin-top: 5%;
     }
 
+    #resultado{
+        width: 95%;
+        height: 30%;    
+    }
+
     #h2{
         margin-bottom: 0;
-        font-size: 4vw;
+        font-size: 6vw;
     }
 
     p{
-        margin: 3%;
-        font-size: 3vw;
+        margin: 4%;
+        font-size: 5vw;
     }
 
 }
