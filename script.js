@@ -5,10 +5,6 @@ var totalBebida;
 function resultado(){
 
     //style
-    let aumentar = document.getElementById("container");
-    //aumentar.style.height = "500px";
-    //let botao = document.getElementById("botão");
-    //botao.innerHTML = "Calcular Novamente";
     let botao = document.getElementById("botao");
     botao.value = "Calcular Novamente";
     botao.style.width = "40%";
@@ -17,7 +13,6 @@ function resultado(){
     let h2 = document.getElementById("h2");
     h2.innerHTML = "Calculando...";
     h2.style.color = "#333333"
-    //h2.style.textAlign = "center";
 
     setTimeout(valores, 1500);
      
@@ -41,7 +36,7 @@ function resultado(){
 function valores(){
     let h2 = document.getElementById("h2");
     h2.innerHTML = "Vai precisar de:";
-    //h2.style.textAlign = "center";
+    h2.style.fontSize = "1.2vm"
     let carne = document.getElementById("carne");
     let cerveja = document.getElementById("cerveja");
     let bebida = document.getElementById("bebida");
@@ -49,16 +44,10 @@ function valores(){
     if(totalCarne >= 1000){
         totalCarne = totalCarne / 1000;
         carne.innerHTML = totalCarne + "Kg de carne";
-        carne.style.fontSize = "1.5vw";
-        carne.style.color = "#333333";
     }else if(totalCarne > 0 && totalCarne < 1000){
         carne.innerHTML = totalCarne + "g de carne";
-        carne.style.fontSize = "1.5vw";
-        carne.style.color = "#333333";
     }else{
         carne.innerHTML = "Nenhuma Carne";
-        carne.style.fontSize = "1.5vw";
-        carne.style.color = "#333333";
     }
 
     //forma com garrafas e latas
@@ -66,31 +55,19 @@ function valores(){
     totalCerveja = Math.ceil(totalCerveja);
     if(totalCerveja > 0 && totalCerveja <= 1){
         cerveja.innerHTML = totalCerveja + " Lata de Cerveja de 350ml";
-        cerveja.style.fontSize = "1.5vw";
-        carne.style.color = "#333333";
     }else if(totalCerveja > 1){
         cerveja.innerHTML = totalCerveja + " Latas de Cerveja de 350ml";
-        cerveja.style.fontSize = "1.5vw";
-        carne.style.color = "#333333";
     }else{
         cerveja.innerHTML = "Nenhuma Lata de Cerveja";
-        cerveja.style.fontSize = "1.5vw";
-        carne.style.color = "#333333";
     }
     totalBebida = totalBebida / 2000;
     totalBebida = Math.ceil(totalBebida);
     if(totalBebida > 0 && totalBebida <= 1){
         bebida.innerHTML = totalBebida + " Garrafa de 2L de Bebidas";
-        bebida.style.fontSize = "1.5vw";
-        carne.style.color = "#333333";
     }else if(totalBebida > 1){
         bebida.innerHTML = totalBebida + " Garrafas de 2L de Bebidas";
-        bebida.style.fontSize = "1.5vw";
-        carne.style.color = "#333333";
     }else{
         bebida.innerHTML = "Nenhuma Garrafa de bebida";
-        bebida.style.fontSize = "1.5vw";
-        carne.style.color = "#333333";
     }
 
     //forma com L e ml
