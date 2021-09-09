@@ -1,5 +1,10 @@
 body{
     font-family: gotico;
+    /*background-color: #F0c32a;*/
+}
+
+img{
+    padding-top: 2%;
 }
 
 h1{
@@ -11,6 +16,7 @@ h1{
     margin: auto;
     background-color: #F0c32a;
     width: 35%;
+    height: 70%;
     border-radius: 10px;
     display: flex;
 
@@ -23,6 +29,7 @@ h1{
 }
 
 input{
+    /*font-size: 1.2vw;*/
     border: none;
     border-radius: 5px;
     text-align: center;
@@ -47,7 +54,7 @@ input:hover{
 
 #botao{
     border-radius: 5px;
-    font-size: 1vw;
+    font-size: 1.2vw;
     width: 20%;
     margin-top: 5%;
     opacity: 0.9;
@@ -63,14 +70,18 @@ input:hover{
 
 #h2{
     margin-bottom: 0;
+    font-size: 1.7vw;
 }
 
 #resultado{
     width: 80%;
+    height: 30%;
 }
 
 p{
     margin: 3%;
+    font-size: 1.5vw;
+    color: #333333;
 }
 
 @font-face {
@@ -93,3 +104,43 @@ p{
     font-weight: normal;
     src: url(fonts/FuturaThin.woff);
 }*/
+
+@media screen and (max-width: 800px) {
+
+    /*body{
+        background-color: #F0c32a;
+    }*/
+    
+    #container{
+        width: 80%;
+    }
+
+    h1{
+        color: #333333;
+        font-size: 6vw;
+    }
+
+    input{
+        /*font-size: 1.2vw;*/
+        margin: 2%;
+        width: 80%;
+        padding: 1.5%;
+    }
+
+    #botao{
+        font-size: 3vw;
+        width: 20%;
+        margin-top: 5%;
+    }
+
+    #h2{
+        margin-bottom: 0;
+        font-size: 4vw;
+    }
+
+    p{
+        margin: 3%;
+        font-size: 3vw;
+    }
+
+}
