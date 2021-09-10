@@ -51,7 +51,7 @@ input:hover{
     border-radius: 5px;
     font-size: 1.2vw;
     width: 20%;
-    margin-top: 3%;
+    margin-top: 5%;
     opacity: 0.9;
 
     transition-property: all;
@@ -71,7 +71,7 @@ input:hover{
 
 #resultado{
     text-align: center;
-    width: 80%;
+    width: 90%;
     height: 30%;    
 }
 
@@ -108,10 +108,10 @@ p{
     }
 
     #botao{
-        font-size: 3vw;
+        font-size: 3.3vw;
         width: 25%;
         margin-top: 5%;
-        padding: 5%;
+        padding: 4%;
     }
 
     #botao:hover{
