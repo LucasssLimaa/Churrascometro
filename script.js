@@ -43,12 +43,14 @@ function valores() {
     //carne
     if (totalCarne >= 1000) {
         totalCarne = totalCarne / 1000;
-        carne.innerHTML = totalCarne + "Kg de carnes em geral";
+        carne.innerHTML = Math.round(totalCarne * 10) / 10 + "Kg de carnes em geral";
     } else if (totalCarne > 0 && totalCarne < 1000) {
         carne.innerHTML = totalCarne + "g de carnes em geral";
     } else {
         carne.innerHTML = "Nenhuma Carne";
     }
+
+    //forma com garrafas e latas
 
     //cerveja
     totalLatinha = totalCerveja / 350;
@@ -60,8 +62,8 @@ function valores() {
         totalLatão + "Latão de Cerveja de 473ml";
     } else if (totalLatinha > 1 && totalLatão > 1) {
         cerveja.innerHTML = totalLatinha + " Latas de Cerveja de 350ml (" +
-        totalLatinha * 350 + "ml) ou " + totalLatão + " Latões de Cerveja de 473ml (" + 
-        totalLatão * 473 + "ml)";
+        Math.round((totalLatinha * 0.35) * 10) / 10 + "L) ou " + totalLatão + " Latões de Cerveja de 473ml (" + 
+        Math.round((totalLatão * 0.473) * 10) / 10 + "L)";
     } else {
         cerveja.innerHTML = "Nenhuma Lata de Cerveja";
     }
@@ -70,9 +72,9 @@ function valores() {
     totalBebida = totalBebida / 2000;
     totalBebida = Math.ceil(totalBebida);
     if (totalBebida > 0 && totalBebida <= 1) {
-        bebida.innerHTML = totalBebida + " Garrafa de 2L de Bebidas";
+        bebida.innerHTML = totalBebida + " Garrafa de 2L de Bebida";
     } else if (totalBebida > 1) {
-        bebida.innerHTML = totalBebida + " Garrafas de 2L de Bebidas";
+        bebida.innerHTML = totalBebida + " Garrafas de 2L de Bebida";
     } else {
         bebida.innerHTML = "Nenhuma Garrafa de bebida";
     }
