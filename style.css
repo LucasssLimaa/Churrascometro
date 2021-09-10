@@ -1,12 +1,6 @@
 body{
     font-family: gotico;
-    /*background-color: #F0c32a;*/
-}
-
-#caixa{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #F0c32a;
 }
 
 img{
@@ -16,6 +10,7 @@ img{
 h1{
     color: #333333;
     font-size: 2.5vw;
+    margin: 1%;
 }
 
 #container{
@@ -35,7 +30,6 @@ h1{
 }
 
 input{
-    /*font-size: 1.2vw;*/
     border: none;
     border-radius: 5px;
     text-align: center;
@@ -53,16 +47,11 @@ input:hover{
     width: 82%;
 }
 
-/*#botão{
-    border-radius: 5px;
-    width: 20%;
-}*/
-
 #botao{
     border-radius: 5px;
     font-size: 1.2vw;
     width: 20%;
-    margin-top: 5%;
+    margin-top: 3%;
     opacity: 0.9;
 
     transition-property: all;
@@ -77,9 +66,11 @@ input:hover{
 #h2{
     margin-bottom: 0;
     font-size: 1.7vw;
+    color: #333333;
 }
 
 #resultado{
+    text-align: center;
     width: 80%;
     height: 30%;    
 }
@@ -92,26 +83,10 @@ p{
 
 @font-face {
     font-family: gotico;
-    font-style:normal;
-    font-weight: normal;
-    src: url(assets/fonts/GothicA1-Light.ttf);
+    src: url(assets/fonts/GothicA1-Medium.ttf);
 }
 
-/*@font-face {
-    font-family: futura;
-    font-style:normal;
-    font-weight: normal;
-    src: url(fonts/FuturaPTBook.woff);
-}
-
-@font-face {
-    font-family: futuraFino;
-    font-style:normal;
-    font-weight: normal;
-    src: url(fonts/FuturaThin.woff);
-}*/
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1023px) {
 
     body{
         background-color: #F0c32a;
@@ -127,7 +102,6 @@ p{
     }
 
     input{
-        /*font-size: 1.2vw;*/
         margin: 4%;
         width: 80%;
         padding: 3%;
@@ -140,7 +114,12 @@ p{
         padding: 5%;
     }
 
+    #botao:hover{
+        width: 28%;
+    }
+
     #resultado{
+        margin-top: 5%;
         width: 95%;
         height: 30%;    
     }
