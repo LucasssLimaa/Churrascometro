@@ -1,238 +1,151 @@
-vbody{
-    font-family: gotico;
-    background-color: #F0c32a;
+var totalCarne;
+var totalCerveja;
+var totalLatão;
+var totalBebida;
+
+var carneBovina;
+var carneOutras;
+
+function calcNovamente() {
+    let adultos = document.getElementById("adultos");
+    let adultoSemAlcool = document.getElementById("adultoSemAlcool");
+    let crianca = document.getElementById("crianças");
+    let duracao = document.getElementById("duração");
+
+    adultos.value = "";
+    adultoSemAlcool.value = "";
+    crianca.value = "";
+    duracao.value = "";
+
+    let tela1 = document.getElementById("tela1");
+    let tela2 = document.getElementById("tela2");
+    tela1.style.display = "flex";
+    tela2.style.display = "none";
 }
 
-img{
-    padding-top: 2%;
-}
+function resultado() {
 
-h1{
-    color: #333333;
-    font-size: 2.5vw;
-}
+    //style
+    let tela1 = document.getElementById("tela1");
+    let tela2 = document.getElementById("tela2");
+    tela1.style.display = "none";
+    tela2.style.display = "flex";
 
-#container{
-    margin: auto;
-    background-color: #F0c32a;
-    width: 35%;
-    height: 70%;
-    border-radius: 10px;
-    display: flex;
+    let resultado = document.getElementById("resultado");
+    resultado.style.display = "inline";
 
-    flex-direction: column;
-    align-items: center;
-}
+    let botao = document.getElementById("botao2");
+    botao.style.display = "block";
 
-#tela1{
-    display: flex;
+    //calculos:
+    let adultos = document.getElementById("adultos");
+    let adultoSemAlcool = document.getElementById("adultoSemAlcool");
+    let crianca = document.getElementById("crianças");
+    let duracao = document.getElementById("duração");
 
-    flex-direction: column;
-    align-items: center;
-}
-
-#tela2{
-    width: 90%;
-    display: flex;
-
-    flex-direction: column;
-    align-items: center;
-}
-
-.entradas{
-    text-align: center;
-    display: grid;
-
-    grid-template: auto auto / auto auto;
-    grid-gap: 7%;
-    justify-items: center;
-}
-
-input{
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    margin: 4%;
-    width: 90%;
-    padding: 8%;
-    opacity: 0.9;
-
-    transition-property: all;
-    transition-duration: 300ms;
-}
-
-input:hover{
-    opacity: 1;
-    width: 92%;
-}
-
-#botao{
-    color: white;
-    background-color: #333333;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 1.4vw;
-    width: 23%;
-    opacity: 1;
-    margin-top: 8%;
-    padding: 2%;
-
-    transition-property: all;
-    transition-duration: 300ms;
-}
-
-#botao:hover{
-    width: 25%;
-}
-
-#botao2{
-    color: white;
-    background-color: #333333;
-    display: none;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 1.2vw;
-    opacity: 1;
-    width: 40%;
-    padding: 3%;
-
-    transition-property: all;
-    transition-duration: 300ms;
-}
-
-#botao2:hover{
-    width: 42%;
-}
-
-#h2{
-    margin-bottom: 0;
-    font-size: 2.3vw;
-    color: #333333;
-}
-
-#resultado{
-    display: none;
-    margin-top: 1.5%;
-    text-align: center;
-    width: 90%;
-    opacity: 0.9;
-    height: 30%;   
-}
-
-#carnes{
-    margin: 5%;
-    background-color: white;
-    border-radius: 10px;
-}
-
-#cervejas{
-    margin: 5%;
-    background-color: white;
-    border-radius: 10px;
-}
-
-#bebidas{
-    margin: 5%;
-    background-color: white;
-    border-radius: 10px;
-}
-
-p{
-    padding: 4%;
-    margin: 0;
-    font-size: 1.5vw;
-    color: #333333;
-    border: 2px solid #F0c32a;
-}
-
-@font-face {
-    font-family: gotico;
-    src: url(assets/fonts/GothicA1-Bold.ttf);
-}
-
-@media screen and (max-width: 1023px) {
-
-    body{
-        background-color: #F0c32a;
+    if (duracao.value < 6) {
+        totalCarne = (adultos.value * 400) + (adultoSemAlcool.value * 400) + (crianca.value * 200);
+        totalCerveja = adultos.value * 1200;
+        totalBebida = (adultos.value * 1000) + (adultoSemAlcool.value * 1000) + (crianca.value * 500);
+    } else {
+        totalCarne = (adultos.value * 650) + (adultoSemAlcool.value * 650) + (crianca.value * 300);
+        totalCerveja = adultos.value * 2000;
+        totalBebida = (adultos.value * 1500) + (adultoSemAlcool.value * 1500) + (crianca.value * 750);
     }
 
-    img{
-        width: 60%;
-        height: 60%;
+    valores();
+}
+
+function valores() {
+
+    let h2 = document.getElementById("h2");
+    h2.innerHTML = "Vai precisar de:";
+
+    let carne = document.getElementById("carneTotal");
+    let carneBovina = document.getElementById("carneBovina");
+    let carneOutras = document.getElementById("carneOutras");
+    let cerveja = document.getElementById("lata");
+    let latao = document.getElementById("latao");
+    let bebida = document.getElementById("bebida");
+
+    //carne
+
+    if (totalCarne >= 1000) {
+
+        let totalCarneBovina = totalCarne * 0.7;
+        let totalCarneOutras = totalCarne * 0.3;
+
+        if (totalCarneBovina >= 1000 && totalCarneOutras >= 1000) {
+
+            totalCarneBovina = totalCarneBovina / 1000;
+            totalCarneOutras = totalCarneOutras / 1000;
+            totalCarne = totalCarne / 1000;
+
+            carneBovina.innerHTML = "Carne Bovina = " + Math.round(totalCarneBovina * 10) / 10 + "kg";
+            carneOutras.innerHTML = "Outras Carnes = " + Math.round(totalCarneOutras * 10) / 10 + "kg";
+            carne.innerHTML = "Total de carne = " + Math.round(totalCarne * 10) / 10 + "kg";
+
+        } else if (totalCarneBovina >= 1000 && totalCarneOutras < 1000) {
+
+            totalCarneBovina = totalCarneBovina / 1000;
+            totalCarne = totalCarne / 1000;
+
+            carneBovina.innerHTML = "Carne Bovina = " + Math.round(totalCarneBovina * 10) / 10 + "kg";
+            carneOutras.innerHTML = "Outras Carnes = " + totalCarneOutras + "g";
+            carne.innerHTML = "Total de carne = " + Math.round(totalCarne * 10) / 10 + "kg";
+
+        } else {
+
+            totalCarne = totalCarne / 1000;
+
+            carneBovina.innerHTML = "Carne Bovina = " + totalCarneBovina + "g";
+            carneOutras.innerHTML = "Outras Carnes = " + totalCarneOutras + "g";
+            carne.innerHTML = "Total de carne = " + Math.round(totalCarne * 10) / 10 + "kg";
+        }
+
+    } else if (totalCarne > 0 && totalCarne < 1000) {
+
+        let totalCarneBovina = totalCarne * 0.7;
+        let totalCarneOutras = totalCarne * 0.3;
+
+        carne.innerHTML = "Total de carne = " + totalCarne + "g";
+        carneBovina.innerHTML = "Carne Bovina = " + totalCarneBovina + "g";
+        carneOutras.innerHTML = "Outras Carnes = " + totalCarneOutras + "g";
+
+    } else {
+        carneBovina.innerHTML = "Nenhuma Carne Bovina";
+        carneOutras.innerHTML = "Nenhum Outro Tipo de Carne";
+        carne.innerHTML = "Nenhuma Carne";
+    }
+
+    //cerveja
+    totalLatinha = totalCerveja / 350;
+    totalLatão = totalCerveja / 473;
+    totalLatinha = Math.ceil(totalLatinha);
+    totalLatão = Math.ceil(totalLatão);
+
+    if (totalLatinha >= 1 && totalLatão >= 1) {
+        cerveja.innerHTML = "Latas de cerveja 375ml = " + totalLatinha;
+        let ou = document.getElementById("ou");
+        ou.innerHTML = "OU";
+        latao.innerHTML = "Latões de cerveja 473ml = " + totalLatão;
+
+    } else {
+        cerveja.innerHTML = "Nenhuma Lata de Cerveja";
+        let ou = document.getElementById("ou");
+        ou.innerHTML = "OU";
+        latao.innerHTML = "Nenhum Latão de Cerveja";
+    }
+
+    //bebidas
+    totalBebida = totalBebida / 2000;
+    totalBebida = Math.ceil(totalBebida);
+    if (totalBebida > 0 && totalBebida <= 1) {
+        bebida.innerHTML = "Garrafa de 2L de Bebida = " + totalBebida;
+    } else if (totalBebida > 1) {
+        bebida.innerHTML = " Garrafas de 2L de Bebida = " + totalBebida;
+    } else {
+        bebida.innerHTML = "Nenhuma Garrafa de bebida";
     }
     
-    #container{
-        width: 100%;
-    }
-
-    h1{
-        margin-top: 5%;
-        color: #333333;
-        font-size: 8vw;
-    }
-
-    .entradas{
-        margin-top: 2%;
-        width: 90%;
-    }
-
-    input{
-        margin: 5%;
-        width: 80%;
-        padding: 8%;
-        font-size: 4vw;
-    }
-
-    #botao{
-        font-size: 5vw;
-        width: 28%;
-        margin-top: 10%;
-        padding: 4%;
-    }
-
-    #botao:hover{
-        width: 30%;
-    }
-
-    #botao2{
-        font-size: 4.5vw;
-        width: 58%;
-        padding: 5%;
-    }
-    
-    #botao2:hover{
-        width: 60%;
-    }
-
-    #resultado{
-        margin-top: 5%;
-        width: 100%;
-        height: 30%;    
-    }
-
-    #h2{
-        margin-bottom: 0;
-        font-size: 6vw;
-    }
-
-    #carnes{
-        margin: 5%;
-    }
-    
-    #cervejas{
-        margin: 5%;
-    }
-    
-    #bebidas{
-        margin: 5%;
-    }
-    
-
-    p{
-        margin: 4%;
-        font-size: 5vw;
-        margin: 0;
-        padding: 5%;
-    }
-
 }
