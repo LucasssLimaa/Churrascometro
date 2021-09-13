@@ -1,82 +1,238 @@
-var totalCarne;
-var totalCerveja;
-var totalLatão;
-var totalBebida;
-
-function resultado() {
-
-    //style
-    let botao = document.getElementById("botao");
-    botao.value = "Calcular Novamente";
-    botao.style.width = "45%";
-    let h2 = document.getElementById("h2");
-    h2.innerHTML = "Calculando...";
-
-    setTimeout(valores, 1200);
-
-    //calculos:
-    let duracao = document.getElementById("duração");
-    if (duracao.value < 6) {
-        let adultos = document.getElementById("adultos");
-        let criancas = document.getElementById("crianças");
-        totalCarne = adultos.value * 400 + criancas.value * 200;
-        totalCerveja = adultos.value * 1200;
-        totalBebida = adultos.value * 1000 + criancas.value * 500;
-    } else {
-        let adultos = document.getElementById("adultos");
-        let criancas = document.getElementById("crianças");
-        totalCarne = adultos.value * 650 + criancas.value * 300;
-        totalCerveja = adultos.value * 2000;
-        totalBebida = adultos.value * 1500 + criancas.value * 750;
-    }
+vbody{
+    font-family: gotico;
+    background-color: #F0c32a;
 }
 
-function valores() {
+img{
+    padding-top: 2%;
+}
 
-    let h2 = document.getElementById("h2");
-    h2.innerHTML = "Vai precisar de:";
-    let carne = document.getElementById("carne");
-    let cerveja = document.getElementById("cerveja");
-    let bebida = document.getElementById("bebida");
-    let latao = document.getElementById("latao");
+h1{
+    color: #333333;
+    font-size: 2.5vw;
+}
 
-    //carne
-    if (totalCarne >= 1000) {
-        totalCarne = totalCarne / 1000;
-        carne.innerHTML = Math.round(totalCarne * 10) / 10 + "Kg de carnes em geral";
-    } else if (totalCarne > 0 && totalCarne < 1000) {
-        carne.innerHTML = totalCarne + "g de carnes em geral";
-    } else {
-        carne.innerHTML = "Nenhuma Carne";
+#container{
+    margin: auto;
+    background-color: #F0c32a;
+    width: 35%;
+    height: 70%;
+    border-radius: 10px;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+#tela1{
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+#tela2{
+    width: 90%;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.entradas{
+    text-align: center;
+    display: grid;
+
+    grid-template: auto auto / auto auto;
+    grid-gap: 7%;
+    justify-items: center;
+}
+
+input{
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    margin: 4%;
+    width: 90%;
+    padding: 8%;
+    opacity: 0.9;
+
+    transition-property: all;
+    transition-duration: 300ms;
+}
+
+input:hover{
+    opacity: 1;
+    width: 92%;
+}
+
+#botao{
+    color: white;
+    background-color: #333333;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.4vw;
+    width: 23%;
+    opacity: 1;
+    margin-top: 8%;
+    padding: 2%;
+
+    transition-property: all;
+    transition-duration: 300ms;
+}
+
+#botao:hover{
+    width: 25%;
+}
+
+#botao2{
+    color: white;
+    background-color: #333333;
+    display: none;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.2vw;
+    opacity: 1;
+    width: 40%;
+    padding: 3%;
+
+    transition-property: all;
+    transition-duration: 300ms;
+}
+
+#botao2:hover{
+    width: 42%;
+}
+
+#h2{
+    margin-bottom: 0;
+    font-size: 2.3vw;
+    color: #333333;
+}
+
+#resultado{
+    display: none;
+    margin-top: 1.5%;
+    text-align: center;
+    width: 90%;
+    opacity: 0.9;
+    height: 30%;   
+}
+
+#carnes{
+    margin: 5%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#cervejas{
+    margin: 5%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#bebidas{
+    margin: 5%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+p{
+    padding: 4%;
+    margin: 0;
+    font-size: 1.5vw;
+    color: #333333;
+    border: 2px solid #F0c32a;
+}
+
+@font-face {
+    font-family: gotico;
+    src: url(assets/fonts/GothicA1-Bold.ttf);
+}
+
+@media screen and (max-width: 1023px) {
+
+    body{
+        background-color: #F0c32a;
     }
 
-    //forma com garrafas e latas
-
-    //cerveja
-    totalLatinha = totalCerveja / 350;
-    totalLatinha = Math.ceil(totalLatinha);
-    totalLatão = totalCerveja / 473;
-    totalLatão = Math.ceil(totalLatão);
-    if (totalLatinha > 0 && totalLatinha <= 1 && totalLatão > 0 && totalLatão <= 1) {
-        cerveja.innerHTML = totalLatinha + " Lata de Cerveja de 350ml ou " +
-        totalLatão + "Latão de Cerveja de 473ml";
-    } else if (totalLatinha > 1 && totalLatão > 1) {
-        cerveja.innerHTML = totalLatinha + " Latas de Cerveja de 350ml (" +
-        Math.round((totalLatinha * 0.35) * 10) / 10 + "L) ou " + totalLatão + " Latões de Cerveja de 473ml (" + 
-        Math.round((totalLatão * 0.473) * 10) / 10 + "L)";
-    } else {
-        cerveja.innerHTML = "Nenhuma Lata de Cerveja";
-    }
-
-    //bebidas
-    totalBebida = totalBebida / 2000;
-    totalBebida = Math.ceil(totalBebida);
-    if (totalBebida > 0 && totalBebida <= 1) {
-        bebida.innerHTML = totalBebida + " Garrafa de 2L de Bebida";
-    } else if (totalBebida > 1) {
-        bebida.innerHTML = totalBebida + " Garrafas de 2L de Bebida";
-    } else {
-        bebida.innerHTML = "Nenhuma Garrafa de bebida";
+    img{
+        width: 60%;
+        height: 60%;
     }
     
+    #container{
+        width: 100%;
+    }
+
+    h1{
+        margin-top: 5%;
+        color: #333333;
+        font-size: 8vw;
+    }
+
+    .entradas{
+        margin-top: 2%;
+        width: 90%;
+    }
+
+    input{
+        margin: 5%;
+        width: 80%;
+        padding: 8%;
+        font-size: 4vw;
+    }
+
+    #botao{
+        font-size: 5vw;
+        width: 28%;
+        margin-top: 10%;
+        padding: 4%;
+    }
+
+    #botao:hover{
+        width: 30%;
+    }
+
+    #botao2{
+        font-size: 4.5vw;
+        width: 58%;
+        padding: 5%;
+    }
+    
+    #botao2:hover{
+        width: 60%;
+    }
+
+    #resultado{
+        margin-top: 5%;
+        width: 100%;
+        height: 30%;    
+    }
+
+    #h2{
+        margin-bottom: 0;
+        font-size: 6vw;
+    }
+
+    #carnes{
+        margin: 5%;
+    }
+    
+    #cervejas{
+        margin: 5%;
+    }
+    
+    #bebidas{
+        margin: 5%;
+    }
+    
+
+    p{
+        margin: 4%;
+        font-size: 5vw;
+        margin: 0;
+        padding: 5%;
+    }
+
 }
